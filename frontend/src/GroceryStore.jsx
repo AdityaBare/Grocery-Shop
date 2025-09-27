@@ -14,6 +14,7 @@ const GroceryStore = () => {
   const [categoryFilter, setCategoryFilter] = useState('');
   const [loading, setLoading] = useState(false);
   const [orders, setOrders] = useState([]);
+  const [view, setView] = useState("shop");
   const [loginData, setLoginData] = useState({ email: '', password: '' });
   const [registerData, setRegisterData] = useState({
     name: '', email: '', password: '', phone: '', address: ''
