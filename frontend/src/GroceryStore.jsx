@@ -22,7 +22,7 @@ const GroceryStore = () => {
 const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
 const cartTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
   // API Base URL
-  const API_BASE = 'http://localhost:5000/api';
+  const API_BASE = 'https://grocery-shop-backend-x79f.onrender.com/api';
 
   // Initialize app
   useEffect(() => {
