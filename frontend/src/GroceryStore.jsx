@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 
 const GroceryStore = () => {
   // State management
+  // Derived values from cart
+  
+
   const [currentPage, setCurrentPage] = useState('home');
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
@@ -15,9 +18,10 @@ const GroceryStore = () => {
   const [registerData, setRegisterData] = useState({
     name: '', email: '', password: '', phone: '', address: ''
   });
-
+const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
+const cartTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
   // API Base URL
-  const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+  const API_BASE = 'http://localhost:5000/api';
 
   // Initialize app
   useEffect(() => {
