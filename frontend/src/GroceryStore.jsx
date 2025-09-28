@@ -202,7 +202,7 @@ const cartTotal = cart.reduce((total, item) => total + item.price * item.quantit
       return;
     }
     
-    // const deliveryAddress = prompt('Enter delivery address:');
+    const deliveryAddress ="deliveryAddress";
     if (!deliveryAddress) return;
     
     try {
@@ -217,7 +217,7 @@ const cartTotal = cart.reduce((total, item) => total + item.price * item.quantit
             productId: item.productId,
             quantity: item.quantity
           })),
-          deliveryAddress: { street: "deliveryAddress" }
+          deliveryAddress: { street: deliveryAddress }
         })
       });
 
