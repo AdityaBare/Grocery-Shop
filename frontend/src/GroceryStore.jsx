@@ -278,9 +278,18 @@ const cartTotal = cart.reduce((total, item) => total + item.price * item.quantit
     
     return (
       <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-        <div className="bg-gradient-to-br from-green-400 to-green-600 h-48 flex items-center justify-center text-white text-6xl">
-          <i className={`fas fa-${getProductIcon(product.category)}`}></i>
-        </div>
+       <div className="h-48 flex items-center justify-center bg-gray-100 overflow-hidden">
+  {product.image ? (
+    <img 
+      src={product.image} 
+      alt={product.name} 
+      className="object-contain h-full w-full"
+    />
+  ) : (
+    <i className={`fas fa-${getProductIcon(product.category)} text-6xl text-green-500`}></i>
+  )}
+</div>
+
         <div className="p-6">
           <h3 className="text-xl font-bold mb-2 text-gray-800">{product.name}</h3>
           <p className="text-gray-600 mb-3 text-sm">{product.description}</p>

@@ -9,7 +9,7 @@ const sampleProducts = [
     price: 120,
     category: "fruits",
     stock: 50,
-    image: "apple.jpg",
+    image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fapple-fruit&psig=AOvVaw2FMgLhxhvbPxZlX5GRaANX&ust=1759576971162000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCOi48JX1h5ADFQAAAAAdAAAAABAE",
     unit: "kg"
   },
   {
@@ -18,7 +18,7 @@ const sampleProducts = [
     price: 40,
     category: "fruits",
     stock: 100,
-    image: "banana.jpg",
+    image: "https://media.istockphoto.com/id/1494763483/photo/banana-concept.jpg?s=612x612&w=is&k=20&c=2BcUioXt7dNw1N2U540k3WDJF9gOwcg6LtXKso7-cTw=",
     unit: "kg"
   },
   {
@@ -27,7 +27,7 @@ const sampleProducts = [
     price: 30,
     category: "vegetables",
     stock: 80,
-    image: "tomato.jpg",
+    image: "https://media.istockphoto.com/id/1095798054/photo/fresh-tomatoes-in-a-box.jpg?s=612x612&w=is&k=20&c=SHLm26qPa2WD1KJXujWHaBz51xNE6Ub9PL9oZVreUsM=",
     unit: "kg"
   },
   {
@@ -36,7 +36,7 @@ const sampleProducts = [
     price: 25,
     category: "vegetables",
     stock: 120,
-    image: "potato.jpg",
+    image: "https://media.istockphoto.com/id/464381355/photo/raw-potato.jpg?s=612x612&w=is&k=20&c=ci_UNDSGKCA_kWW70sSyp931mNvXl6UunPVmqyRKVuw=",
     unit: "kg"
   },
   {
@@ -45,7 +45,7 @@ const sampleProducts = [
     price: 60,
     category: "dairy",
     stock: 200,
-    image: "milk.jpg",
+    image: "https://media.istockphoto.com/id/1222018207/photo/pouring-milk-into-a-drinking-glass.jpg?s=612x612&w=is&k=20&c=F8mHn1W6qyLl9Mx-0mvfN6p4npTp209xLFz80dFpwlc=",
     unit: "liter"
   },
   {
@@ -54,7 +54,7 @@ const sampleProducts = [
     price: 150,
     category: "dairy",
     stock: 75,
-    image: "cheese.jpg",
+    image: "https://media.istockphoto.com/id/120990404/photo/different-types-of-cheese-bread-and-tomatoes.jpg?s=612x612&w=0&k=20&c=LEuUPW45Zy9UyJ8oxhmD3vDShs0wUejBwQfSODVuRw8=",
     unit: "pack"
   },
   {
@@ -63,7 +63,7 @@ const sampleProducts = [
     price: 250,
     category: "meat",
     stock: 60,
-    image: "chicken.jpg",
+    image: "https://media.istockphoto.com/id/93456470/photo/two-raw-chicken-breast-on-white-backdrop.jpg?s=612x612&w=is&k=20&c=BB-CIU8Ott7Klsc2VYez0HTXL4En4Gf0uYfMFB7VCDg=",
     unit: "kg"
   },
   {
@@ -72,7 +72,7 @@ const sampleProducts = [
     price: 45,
     category: "grains",
     stock: 150,
-    image: "flour.jpg",
+    image: "https://media.istockphoto.com/id/186831897/photo/flour-and-wheat-grains.jpg?s=612x612&w=is&k=20&c=HLmhELuzt9sb4bTjKPE2bIkXdBMuN8wGLXGVQVQAh24=",
     unit: "kg"
   },
   {
@@ -81,7 +81,7 @@ const sampleProducts = [
     price: 90,
     category: "grains",
     stock: 200,
-    image: "rice.jpg",
+    image: "https://media.istockphoto.com/id/1126345377/photo/rice-in-a-wooden-bowl.jpg?s=612x612&w=is&k=20&c=I7ixSpOjsDn65Gnbh25VBVPze0GA1iUhJqu7K-fEK-I=",
     unit: "kg"
   },
   {
@@ -90,7 +90,7 @@ const sampleProducts = [
     price: 40,
     category: "beverages",
     stock: 300,
-    image: "coke.jpg",
+    image: "https://media.istockphoto.com/id/487787108/photo/can-of-coca-cola-on-ice.jpg?s=612x612&w=0&k=20&c=xDSO_nl0qeDMBZJBJk09jj5_UeQkyQ70QdXuDMByCaY=",
     unit: "liter"
   },
   {
@@ -99,7 +99,7 @@ const sampleProducts = [
     price: 20,
     category: "snacks",
     stock: 500,
-    image: "chips.jpg",
+    image: "https://media.istockphoto.com/id/891663430/photo/hands-giving-bowl-of-potato-chips-on-brown-background.jpg?s=612x612&w=is&k=20&c=7nU0CFJrxa9S__A3aMYjLfkOTjwSlccgX-Ec-x9nbdc=",
     unit: "pack"
   },
   {
@@ -108,7 +108,7 @@ const sampleProducts = [
     price: 120,
     category: "beverages",
     stock: 90,
-    image: "juice.jpg",
+    image: "https://media.istockphoto.com/id/915657126/photo/orange-juice-glass-jar-shot-on-rustic-wooden-table.jpg?s=612x612&w=is&k=20&c=H-tAq0NaDg5t0f5I37F60v0O7fDwk1CZK-gcJiWRz8c=",
     unit: "liter"
   }
 ];
