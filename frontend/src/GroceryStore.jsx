@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 const GroceryStore = () => {
-  // State management
-  // Derived values from cart
-  
-
   const [currentPage, setCurrentPage] = useState('home');
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
@@ -19,12 +15,19 @@ const GroceryStore = () => {
   const [registerData, setRegisterData] = useState({
     name: '', email: '', password: '', phone: '', address: ''
   });
-const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
-const cartTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
-  // API Base URL
+
+  const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
+  const cartTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  
   const API_BASE = 'https://grocery-shop-backend-x79f.onrender.com/api';
 
-  // Initialize app
+  // Social media links
+  const socialMedia = {
+    facebook: 'https://www.facebook.com/share/1QgMNqgTdN/',
+    instagram: 'https://www.instagram.com/om_sairam_groceries?utm_source=qr&igsh=MTdrd3Z0bXBscms5dA==',
+    whatsapp: 'https://whatsapp.com/channel/0029VbAp06nCMY0QciWIug1Q'
+  };
+
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem('cart') || '[]');
     const savedUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
@@ -45,8 +48,6 @@ const cartTotal = cart.reduce((total, item) => total + item.price * item.quantit
         const data = await response.json();
         setProducts(data);
       } else {
-        console.error('Failed to load products');
-        // Fallback to sample data if API fails
         setProducts([
           { _id: '1', name: 'Fresh Apples', description: 'Crisp and sweet red apples', price: 120, category: 'fruits', stock: 50, unit: 'kg' },
           { _id: '2', name: 'Organic Bananas', description: 'Ripe yellow bananas', price: 60, category: 'fruits', stock: 30, unit: 'dozen' },
@@ -57,8 +58,6 @@ const cartTotal = cart.reduce((total, item) => total + item.price * item.quantit
         ]);
       }
     } catch (error) {
-      console.error('Error loading products:', error);
-      // Fallback to sample data if API fails
       setProducts([
         { _id: '1', name: 'Fresh Apples', description: 'Crisp and sweet red apples', price: 120, category: 'fruits', stock: 50, unit: 'kg' },
         { _id: '2', name: 'Organic Bananas', description: 'Ripe yellow bananas', price: 60, category: 'fruits', stock: 30, unit: 'dozen' }
@@ -147,7 +146,6 @@ const cartTotal = cart.reduce((total, item) => total + item.price * item.quantit
         alert(data.message || 'Login failed');
       }
     } catch (error) {
-      console.error('Login error:', error);
       alert('Network error. Please try again.');
     }
     
@@ -175,7 +173,6 @@ const cartTotal = cart.reduce((total, item) => total + item.price * item.quantit
         alert(data.message || 'Registration failed');
       }
     } catch (error) {
-      console.error('Registration error:', error);
       alert('Network error. Please try again.');
     }
     
@@ -202,7 +199,7 @@ const cartTotal = cart.reduce((total, item) => total + item.price * item.quantit
       return;
     }
     
-    const deliveryAddress ="deliveryAddress";
+    const deliveryAddress = "deliveryAddress";
     if (!deliveryAddress) return;
     
     try {
@@ -228,12 +225,11 @@ const cartTotal = cart.reduce((total, item) => total + item.price * item.quantit
         localStorage.setItem('cart', JSON.stringify([]));
         alert('Order placed successfully!');
         setCurrentPage('orders');
-        loadUserOrders(); // Refresh orders
+        loadUserOrders();
       } else {
         alert(data.message || 'Failed to place order');
       }
     } catch (error) {
-      console.error('Checkout error:', error);
       alert('Network error. Please try again.');
     }
   };
@@ -251,8 +247,6 @@ const cartTotal = cart.reduce((total, item) => total + item.price * item.quantit
       if (response.ok) {
         const data = await response.json();
         setOrders(data);
-      } else {
-        console.error('Failed to load orders');
       }
     } catch (error) {
       console.error('Error loading orders:', error);
@@ -266,7 +260,6 @@ const cartTotal = cart.reduce((total, item) => total + item.price * item.quantit
     return matchesSearch && matchesCategory;
   });
 
-  // Load orders when user goes to orders page
   useEffect(() => {
     if (currentPage === 'orders' && currentUser && token) {
       loadUserOrders();
@@ -278,18 +271,17 @@ const cartTotal = cart.reduce((total, item) => total + item.price * item.quantit
     
     return (
       <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-       <div className="h-48 flex items-center justify-center bg-gray-100 overflow-hidden">
-  {product.image ? (
-    <img 
-      src={product.image} 
-      alt={product.name} 
-      className="object-contain h-full w-full"
-    />
-  ) : (
-    <i className={`fas fa-${getProductIcon(product.category)} text-6xl text-green-500`}></i>
-  )}
-</div>
-
+        <div className="h-48 flex items-center justify-center bg-gray-100 overflow-hidden">
+          {product.image ? (
+            <img 
+              src={product.image} 
+              alt={product.name} 
+              className="object-contain h-full w-full"
+            />
+          ) : (
+            <i className={`fas fa-${getProductIcon(product.category)} text-6xl text-green-500`}></i>
+          )}
+        </div>
         <div className="p-6">
           <h3 className="text-xl font-bold mb-2 text-gray-800">{product.name}</h3>
           <p className="text-gray-600 mb-3 text-sm">{product.description}</p>
@@ -319,8 +311,52 @@ const cartTotal = cart.reduce((total, item) => total + item.price * item.quantit
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+      
       {/* Header */}
       <header className="bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg">
+        {/* Top Bar with Social Media */}
+        <div className="bg-green-700 py-2">
+          <div className="max-w-6xl mx-auto px-4 flex justify-between items-center text-sm">
+            <div className="flex items-center gap-2">
+              <span className="hidden sm:inline">Follow us:</span>
+              <div className="flex gap-3">
+                <a 
+                  href={socialMedia.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-green-200 transition-colors duration-300"
+                  aria-label="Facebook"
+                >
+                  <i className="fab fa-facebook text-lg"></i>
+                </a>
+                <a 
+                  href={socialMedia.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-green-200 transition-colors duration-300"
+                  aria-label="Instagram"
+                >
+                  <i className="fab fa-instagram text-lg"></i>
+                </a>
+                <a 
+                  href={socialMedia.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-green-200 transition-colors duration-300"
+                  aria-label="WhatsApp"
+                >
+                  <i className="fab fa-whatsapp text-lg"></i>
+                </a>
+              </div>
+            </div>
+            <div className="hidden sm:block">
+              <span>📞 Contact us for fresh groceries!</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Navigation */}
         <nav className="max-w-6xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center">
           <div className="text-2xl font-bold flex items-center gap-2">
             <i className="fas fa-shopping-basket"></i>
